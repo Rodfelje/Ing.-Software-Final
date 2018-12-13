@@ -1,12 +1,172 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <title>impresion3d</title>
-    <link rel="stylesheet" href="/dist/main.css">
-  </head>
-  <body>
+    <head>
+        <meta charset="utf-8">
+        <title>impresion3d</title>
+        <link rel="stylesheet" href="/dist/main.css">
+    </head>
+    <body>
+        <!-- NAVBAR-->
+        <div id="NavMainPage">
+            <b-navbar toggleable="md" type="dark" variant="dark">
+                <b-navbar-toggle target="navMainPage_collapse"></b-navbar-toggle>
+                <b-navbar-brand href="#">Ryu3D</b-navbar-brand>
 
-    <script src="/dist/build.js"></script>
-  </body>
+                <b-collapse is-nav id="navMainPage_collapse">
+                    <b-navbar-nav>
+                        <b-nav-item href="#">FORO</b-nav-item>
+                        <b-nav-item href="#">CATEGORIAS</b-nav-item>
+                        <b-nav-item href="#">FAQ</b-nav-item>
+                        <b-nav-item href="#">CONTACTANOS</b-nav-item>
+                    </b-navbar-nav>
+                    <b-navbar-nav class="ml-auto">
+                        <b-nav-form right>
+                            <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
+                            <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
+                        </b-nav-form>
+                        <b-nav-item v-bind:href="logUserLink" right>{{logUserMsg}}</b-nav-item>
+                    </b-navbar-nav>
+                </b-collapse>
+                <b-navbar-nav right>
+                    <b-nav-item v-bind:href="logCartLink">
+                        <img src="./images/cart-icon.png" fluid alt="Cart">
+                    </b-nav-item>
+                </b-navbar-nav>
+            </b-navbar>
+        </div>
+
+        <!-- MAIN PAGE BODY-->
+        <b-container fluid id="MainPage">
+            <br>
+            <b-row>
+                <b-col md="1"></b-col>
+                <b-col md="10">
+                    <b-row>
+                        <b-col>
+                            <!-- MAIN PAGE CAROUSEL-->
+                            <b-carousel id="MainPageCarousel"
+                                controls
+                                indicators
+                                background="#ababab"
+                                :interval="4000"
+                                img-width="1024"
+                                img-height="360"
+                            >
+                                <b-carousel-slide img-src="./images/carousel-1.jpg"></b-carousel-slide>
+                                <b-carousel-slide img-src="./images/carousel-2.jpg"></b-carousel-slide>
+                                <b-carousel-slide img-src="./images/carousel-3.jpg"></b-carousel-slide>
+                            </b-carousel>
+                        </b-col>
+                    </b-row>
+                    <br>
+                    <b-row>
+                        <b-col md="7">
+                            <b-row>
+                                <b-col>
+                                    <!-- ARTICULOS POPULARES -->
+                                    <div id="PopularCard">
+                                        <b-card header="MODELOS POPULARES"
+                                            header-text-variant="white"
+                                            header-tag="header"
+                                            header-bg-variant="dark"
+                                        >
+                                            <b-row>
+                                                <b-col md="4">
+                                                    <b-card
+                                                        img-src="images/ruinasmodelo01-miniatura.jpg"
+                                                        img-alt="Card Image"
+                                                        title="Model Name"
+                                                    >
+                                                        <b-button href="#" variant="dark">Ver modelo</b-button>
+                                                    </b-card>
+                                                </b-col>
+                                                <b-col md="4">
+                                                    <b-card
+                                                        img-src="images/ruinasmodelo01-miniatura.jpg"
+                                                        img-alt="Card Image"
+                                                        title="Model Name"
+                                                    >
+                                                        <b-button href="#" variant="dark">Ver modelo</b-button>
+                                                    </b-card>
+                                                </b-col>
+                                                <b-col md="4">
+                                                    <b-card
+                                                        img-src="images/ruinasmodelo01-miniatura.jpg"
+                                                        img-alt="Card Image"
+                                                        title="Model Name"
+                                                    >
+                                                        <b-button href="#" variant="dark">Ver modelo</b-button>
+                                                    </b-card>
+                                                </b-col>
+                                            </b-row>
+                                        </b-card>
+                                    </div>
+                                </b-col>
+                            </b-row> <br>
+                            <b-row>
+                                <b-col>
+                                    <!-- ARTICULOS NUEVOS -->
+                                    <div id="NewCard">
+                                        <b-card header="NUEVOS MODELOS"
+                                            header-text-variant="white"
+                                            header-tag="header"
+                                            header-bg-variant="dark"
+                                        >
+                                        <b-row>
+                                            <b-col md="4">
+                                                <b-card
+                                                    img-src="images/ruinasmodelo01-miniatura.jpg"
+                                                    img-alt="Card Image"
+                                                    title="Model Name"
+                                                >
+                                                    <b-button href="#" variant="dark">Ver modelo</b-button>
+                                                </b-card>
+                                            </b-col>
+                                            <b-col md="4">
+                                                <b-card
+                                                    img-src="images/ruinasmodelo01-miniatura.jpg"
+                                                    img-alt="Card Image"
+                                                    title="Model Name"
+                                                >
+                                                    <b-button href="#" variant="dark">Ver modelo</b-button>
+                                                </b-card>
+                                            </b-col>
+                                            <b-col md="4">
+                                                <b-card
+                                                    img-src="images/ruinasmodelo01-miniatura.jpg"
+                                                    img-alt="Card Image"
+                                                    title="Model Name"
+                                                >
+                                                    <b-button href="#" variant="dark">Ver modelo</b-button>
+                                                </b-card>
+                                            </b-col>
+                                        </b-row>
+                                        </b-card>
+                                    </div>
+                                </b-col>
+                            </b-row>
+                        </b-col>
+                        <b-col md="1"></b-col>
+                        <b-col md="4">
+                            <!-- OUR SERVICES -->
+                            <div id="ServicesCard">
+                                <b-card header="NUESTROS SERVICIOS"
+                                    header-text-variant="white"
+                                    header-tag="header"
+                                    header-bg-variant="dark"
+                                    title="Title"
+                                >
+                                    <p class="card-text">Header and footers variants.</p>
+                                </b-card>
+                            </div>
+                        </b-col>
+                    </b-row>
+
+                </b-col>
+                <b-col md="1"></b-col>
+            </b-row>
+        </b-container>
+
+        <script src="/dist/build.js"></script>
+    </body>
 </html>
