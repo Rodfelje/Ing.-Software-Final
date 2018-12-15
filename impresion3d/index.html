@@ -7,15 +7,15 @@
     </head>
     <body>
         <!-- NAVBAR-->
-        <div id="NavMainPage">
+        <div id="MainNavBar">
             <b-navbar toggleable="md" type="dark" variant="dark">
                 <b-navbar-toggle target="navMainPage_collapse"></b-navbar-toggle>
-                <b-navbar-brand href="#">Ryu3D</b-navbar-brand>
+                <b-navbar-brand v-bind:href="homeLink">Ryu3D</b-navbar-brand>
 
                 <b-collapse is-nav id="navMainPage_collapse">
                     <b-navbar-nav>
                         <b-nav-item href="#">FORO</b-nav-item>
-                        <b-nav-item href="#">CATEGORIAS</b-nav-item>
+                        <b-nav-item v-bind:href="catalogoLink">CATEGORIAS</b-nav-item>
                         <b-nav-item href="#">FAQ</b-nav-item>
                         <b-nav-item href="#">CONTACTANOS</b-nav-item>
                     </b-navbar-nav>
@@ -24,7 +24,20 @@
                             <b-form-input size="sm" class="mr-sm-2" type="text" placeholder="Search"/>
                             <b-button size="sm" class="my-2 my-sm-0" type="submit">Search</b-button>
                         </b-nav-form>
-                        <b-nav-item v-bind:href="logUserLink" right>{{logUserMsg}}</b-nav-item>
+                        <div v-if="logged">
+                                <b-nav-item-dropdown text="MI CUENTA" extra-toggle-classes="nav-link-custom" right>
+                                <b-dropdown-item v-bind:href="profileLink">Perfil</b-dropdown-item>
+                                <b-dropdown-divider></b-dropdown-divider>
+                                <b-dropdown-item>Mensaje</b-dropdown-item>
+                                <b-dropdown-divider></b-dropdown-divider>
+                                <b-dropdown-item v-bind:href="crearLink" >Crear</b-dropdown-item>
+                                <b-dropdown-divider></b-dropdown-divider>
+                                <b-dropdown-item>CERRAR SESIÓN</b-dropdown-item>
+                            </b-nav-item-dropdown>
+                        </div>
+                        <div v-else>
+                            <b-nav-item v-bind:href="logUserLink" right>{{logUserMsg}}</b-nav-item>
+                        </div>
                     </b-navbar-nav>
                 </b-collapse>
                 <b-navbar-nav right>
@@ -75,7 +88,7 @@
                                                     <b-card
                                                         img-src="images/ruinasmodelo01-miniatura.jpg"
                                                         img-alt="Card Image"
-                                                        title="Model Name"
+                                                        sub-title="Model Name"
                                                     >
                                                         <b-button href="#" variant="dark">Ver modelo</b-button>
                                                     </b-card>
@@ -84,7 +97,7 @@
                                                     <b-card
                                                         img-src="images/ruinasmodelo01-miniatura.jpg"
                                                         img-alt="Card Image"
-                                                        title="Model Name"
+                                                        sub-title="Model Name"
                                                     >
                                                         <b-button href="#" variant="dark">Ver modelo</b-button>
                                                     </b-card>
@@ -93,7 +106,7 @@
                                                     <b-card
                                                         img-src="images/ruinasmodelo01-miniatura.jpg"
                                                         img-alt="Card Image"
-                                                        title="Model Name"
+                                                        sub-title="Model Name"
                                                     >
                                                         <b-button href="#" variant="dark">Ver modelo</b-button>
                                                     </b-card>
@@ -117,7 +130,7 @@
                                                 <b-card
                                                     img-src="images/ruinasmodelo01-miniatura.jpg"
                                                     img-alt="Card Image"
-                                                    title="Model Name"
+                                                    sub-title="Model Name"
                                                 >
                                                     <b-button href="#" variant="dark">Ver modelo</b-button>
                                                 </b-card>
@@ -126,7 +139,7 @@
                                                 <b-card
                                                     img-src="images/ruinasmodelo01-miniatura.jpg"
                                                     img-alt="Card Image"
-                                                    title="Model Name"
+                                                    sub-title="Model Name"
                                                 >
                                                     <b-button href="#" variant="dark">Ver modelo</b-button>
                                                 </b-card>
@@ -135,7 +148,7 @@
                                                 <b-card
                                                     img-src="images/ruinasmodelo01-miniatura.jpg"
                                                     img-alt="Card Image"
-                                                    title="Model Name"
+                                                    sub-title="Model Name"
                                                 >
                                                     <b-button href="#" variant="dark">Ver modelo</b-button>
                                                 </b-card>
@@ -154,9 +167,9 @@
                                     header-text-variant="white"
                                     header-tag="header"
                                     header-bg-variant="dark"
-                                    title="Title"
+                                    title="Our Services"
                                 >
-                                    <p class="card-text">Header and footers variants.</p>
+                                    <p class="card-text">Currently on development.</p>
                                 </b-card>
                             </div>
                         </b-col>
